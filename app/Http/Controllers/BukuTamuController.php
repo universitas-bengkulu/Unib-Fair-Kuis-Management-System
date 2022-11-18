@@ -71,6 +71,10 @@ class BukuTamuController extends Controller
             'nilai'     =>  ($jumlah_benar/15)*100,
             'total_waktu'   =>  $total,
         ]);
-        return redirect()->back()->with(['success'  =>  'Jawaban sudah tersimpan']);
+        if (($jumlah_benar/15)*100 > 90) {
+            return redirect()->back()->with(['success'  =>  'Jawaban sudah tersimpan']);
+        }else {
+            return redirect()->back()->with(['error'  =>  'Jawaban sudah tersimpan, tapi nilai belum mencukupi']);
+        }
     }
 }

@@ -118,6 +118,11 @@
                           <strong>{{ $message }}</strong>
                       </div>
                     @endif
+                    @if ($message = Session::get('error'))
+                      <div class="alert alert-danger alert-block">
+                          <strong>{{ $message }}</strong>
+                      </div>
+                    @endif
                     
                   </div>
                   <div class="col-md-8" style="overflow:auto; height:750px !important;">
