@@ -70,7 +70,7 @@
   ======================================================== -->
 </head>
 
-<body class="page-about">
+<body class="page-about" onload="countDown()">
     <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top" style="background:#29235c">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -118,6 +118,7 @@
                           <strong>{{ $message }}</strong>
                       </div>
                     @endif
+                    
                   </div>
                   <div class="col-md-8" style="overflow:auto; height:750px !important;">
                       <table class="table table-bordered table-hover ">
@@ -178,26 +179,8 @@
                                 Waktu Mengerjakan
                               </div>
                               <div class="card-body"style="text-align: center !important ; margin:0 auto;">
-                                <div class="countdownend " >
-                                  <div class="time">
-                                    <span id="days">00</span>
-                                    <span>Hari</span>
-                                  </div>
-                                  <div class="semicolon">:</div>
-                                  <div class="time">
-                                    <span id="hours">00</span>
-                                    <span>Jam</span>
-                                  </div>
-                                  <div class="semicolon">:</div>
-                                  <div class="time">
-                                    <span id="minutes">00</span>
-                                    <span>Menit</span>
-                                  </div>
-                                  <div class="semicolon">:</div>
-                                  <div class="time">
-                                    <span id="seconds">00</span>
-                                    <span>Detik</span>
-                                  </div>
+                                Waktu Anda Hanya Tersisa <span id="timer"></span> detik.</br>
+                                <span id="link"></span>
                               </div>
                               </div>
                             </div>
@@ -232,7 +215,7 @@
                           </div>
                         </div>
                         <div class="col-md-12" style="margin-top:15px;">
-                          <button type="submit" style="width: 100%; padding:10px !important; background:#29235c; color:#ffed00;" class="btn " ><i class="fa fa-check-circle"></i>&nbsp; Selesai</button>
+                          <button type="submit" id="simpan" style="width: 100%; padding:10px !important; background:#29235c; color:#ffed00;" class="btn " ><i class="fa fa-check-circle"></i>&nbsp; Selesai</button>
                         </div>
                       </div>
                   </div>
@@ -278,7 +261,25 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
-  
+  <script type="text/javascript">
+    var counter = 120;
+    function countDown() {
+        if(counter>=0) {
+            document.getElementById("timer").innerHTML = counter;
+        }
+        else {
+          document.getElementById("simpan").disabled = true;
+
+        }
+        counter -= 1;
+    
+        var counter2 = setTimeout("countDown()",1000);
+        return;
+    }
+    function download() {
+        document.getElementById("link").innerHTML = "<a href='http://suckittrees.com'>Download</a>";
+    }
+    </script>
 </body>
 
 </html>
