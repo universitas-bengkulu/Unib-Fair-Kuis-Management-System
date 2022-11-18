@@ -52,7 +52,7 @@ Route::get('/profil_lptik', function () {
 })->name('profil_lptik');
 
 Route::get('/main_game', function () {
-    $pertanyaans = Pertanyaan::take(50)->get()->random(15);
+    $pertanyaans = Pertanyaan::inRandomOrder()->get();
     $time = Carbon\Carbon::now();
     $waktu = $time->toDateTimeString();
     $nilai = Nilai::join('users','users.id','nilais.user_id')->select('nama','nilai','total_waktu')->orderby('nilai', 'desc')->orderBy('total_waktu','asc')->get();

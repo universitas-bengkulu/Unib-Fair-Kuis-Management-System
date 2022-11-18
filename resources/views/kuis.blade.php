@@ -120,7 +120,7 @@
                     @endif
                   </div>
                   <div class="col-md-8" style="overflow:auto; height:750px !important;">
-                      <table class="table table-bordered table-hover table-striped">
+                      <table class="table table-bordered table-hover ">
                           <thead style="background:#29235c; color:#ffed00;">
                               <tr>
                                 <th style="padding:15px !important;">No</th>
@@ -129,17 +129,34 @@
                           </thead>
                           <tbody>
                               @foreach ($pertanyaans as $index => $pertanyaan)
-                                <tr>
-                                  <td style="padding:15px !important;">{{ $index+1 }}</td>
-                                  <td style="padding:15px !important;">
-                                    {{ $pertanyaan->pertanyaan }}
-                                  </td>
-                                </tr>
+                              @if ($pertanyaan->gambar != null)
+                                    <tr>
+                                      <td style="padding:15px !important;">{{ $index+1 }}</td>
+                                      <td>
+                                        <img src="{{ asset('img/'.$pertanyaan->gambar) }}" alt="">
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td></td>
+                                      <td style="padding:15px !important;">
+                                        {{ $pertanyaan->pertanyaan }}
+                                      </td>
+                                    </tr>
+                                  @else
+                                  <tr>
+                                    <td style="padding:15px !important;">{{ $index+1 }}</td>
+                                    <td style="padding:15px !important;">
+                                      {{ $pertanyaan->pertanyaan }}
+                                    </td>
+                                  </tr>
+                                @endif
+                                
+                                
                                 <tr>
                                   <td style="padding:15px !important;"></td>
                                   <td style="padding:15px !important;">
                                       <input type="hidden" name="pertanyaan{{ $pertanyaan->id }}" id="" value="{{ $pertanyaan->id}}">
-                                      @foreach ($pertanyaan->jawabans()->get() as $jawaban)
+                                      @foreach ($pertanyaan->jawabans()->inRandomOrder()->get() as $jawaban)
                                           <label for="" class="radio-inline">
                                               <input type="radio"  name="jawaban{{ $pertanyaan->id }}" value="{{ $jawaban->id }}" required>&nbsp;&nbsp;{{ $jawaban->jawaban }} <br>
                                           </label>
