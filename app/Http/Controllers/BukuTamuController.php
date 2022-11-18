@@ -30,26 +30,36 @@ class BukuTamuController extends Controller
         $skors = array();
 
         foreach ($pertanyaans as $key => $pertanyaan) {
-            $jawaban_id = $_POST['jawaban'.$pertanyaan->id];
-            $pertanyaan_id = $_POST['pertanyaan'.$pertanyaan->id];
-            $jawaban_benar = Jawaban::select('id')->where('pertanyaan_id',$pertanyaan_id)->where('is_true',1)->first();
-            if ($jawaban_id == $jawaban_benar->id) {
-                $skor = 1;
-            }else {
-                $skor = 0;
+            if (isset($_POST['jawaban'.$pertanyaan->id])) {
+                if (isset($_POST['pertanyaan'.$pertanyaan->id])) {
+                    $pertanyaan_id = $_POST['pertanyaan'.$pertanyaan->id];
+                    $jawaban_id = $_POST['jawaban'.$pertanyaan->id];
+                    $jawaban_benar = Jawaban::select('id')->where('pertanyaan_id',$pertanyaan_id)->where('is_true',1)->first();
+                    if ($jawaban_id == $jawaban_benar->id) {
+                        $skor = 1;
+                    }else {
+                        $skor = 0;
+                    }
+                    $waktu_mulai = Session::get('time');
+                    $waktu_selesai = $waktu;
+                    $total = intval((strtotime($waktu_selesai)-strtotime($waktu_mulai)));
+                    $skors[] = array(
+                        'user_id'       =>  User::select('id')->orderBy('created_at','desc')->pluck('id')->first(),
+                        'pertanyaan_id' =>  $pertanyaan_id,
+                        'jawaban_id'    =>  $jawaban_id,
+                        'skor'          =>  $skor,
+                        'waktu_mulai'   =>  $waktu_mulai,
+                        'waktu_selesai'   =>  $waktu_selesai,
+                        'total_waktu'   =>  $total,
+                    );
+                }else {
+                    $pertanyaan_id = 0;
+                    $jawaban_id = 0;
+                    $skor = 0;
+                }
             }
-            $waktu_mulai = Session::get('time');
-            $waktu_selesai = $waktu;
-            $total = intval((strtotime($waktu_selesai)-strtotime($waktu_mulai)));
-            $skors[] = array(
-                'user_id'       =>  User::select('id')->orderBy('created_at','desc')->pluck('id')->first(),
-                'pertanyaan_id' =>  $pertanyaan_id,
-                'jawaban_id'    =>  $jawaban_id,
-                'skor'          =>  $skor,
-                'waktu_mulai'   =>  $waktu_mulai,
-                'waktu_selesai'   =>  $waktu_selesai,
-                'total_waktu'   =>  $total,
-            );
+
+            
 
         }
         // return $skors;
