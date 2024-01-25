@@ -18,9 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('pertanyaan_id');
             $table->unsignedBigInteger('jawaban_id');
+            $table->integer('skor');
             $table->date('waktu_mulai');
             $table->date('waktu_selesai');
-            $table->date('total_waktu');
+            $table->integer('total_waktu');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
