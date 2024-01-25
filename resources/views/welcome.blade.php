@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nova Bootstrap Template - About</title>
+  <title>Kuis LPTIK</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('assets/IMG/logo_unib.png') }}" rel="icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,33 +28,35 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
   <style>
-        .container-footer, .footer-legal {
-            position: fixed; 
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-        }
-        .cta-btn{
-            font-family: var(--font-default);
-            font-weight: 500;
-            font-size: 16px;
-            letter-spacing: 1px;
-            display: inline-block;
-            padding: 12px 40px;
-            border-radius: 50px;
-            transition: 0.5s;
-            margin: 10px 10px 10px 0px;
-            color: #29486a;
-            background: #fff;
-            border: 3px #29235c solid;
-        }
+    .container-footer,
+    .footer-legal {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+    }
 
-        .cta-btn:hover{
-            color: #ffed00;
-            background: #29235c;
-            border: 3px #29486a solid;
-        }
+    .cta-btn {
+      font-family: var(--font-default);
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 1px;
+      display: inline-block;
+      padding: 12px 40px;
+      border-radius: 50px;
+      transition: 0.5s;
+      margin: 10px 10px 10px 0px;
+      color: #29486a;
+      background: #fff;
+      border: 3px #29235c solid;
+    }
+
+    .cta-btn:hover {
+      color: #ffed00;
+      background: #29235c;
+      border: 3px #29486a solid;
+    }
   </style>
 
   <!-- =======================================================
@@ -70,20 +70,20 @@
 <body class="page-about">
   <main id="main">
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/bg.webp'); padding:20px 0px 20px 0px !important" >
-      <div class="container position-relative d-flex flex-column align-items-center" >
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/bg.webp'); padding:20px 0px 20px 0px !important">
+      <div class="container position-relative d-flex flex-column align-items-center">
 
-            <div style="width: 100%;text-align: center !important;">
-                <img src="{{ asset('assets/img/unib.png') }}" style="height:80px !important;margin-left: auto !important;margin-right: auto !important;" alt="">
-                <img src="{{ asset('assets/img/lptik.png') }}" style="height:80px !important;margin-left: auto !important;margin-right: auto !important;" alt="">
-            </div>
-            <h2 style="font-size: 40px; font-weight:bold; color:#ffed00">SELAMAT DATANG DI UNIB FAIR 2022</h2>
-            <p style="margin: 0px !important; color:white; font-weight:bold;">LEMBAGA PENGEMBANGAN TEKNOLOGI INFORMASI DAN KOMUNIKASI (LPTIK)</p>
+        <div style="width: 100%;text-align: center !important;">
+          <img src="{{ asset('assets/img/unib.png') }}" style="height:80px !important;margin-left: auto !important;margin-right: auto !important;" alt="">
+          <img src="{{ asset('assets/img/lptik.png') }}" style="height:80px !important;margin-left: auto !important;margin-right: auto !important;" alt="">
+        </div>
+        <h2 style="font-size: 40px; font-weight:bold; color:#ffed00">SELAMAT DATANG </h2>
+        <p style="margin: 0px !important; color:white; font-weight:bold;">LEMBAGA PENGEMBANGAN TEKNOLOGI INFORMASI DAN KOMUNIKASI (LPTIK)</p>
 
       </div>
-     
+
     </div>
-    <div class="kedua"style="background-image: url('assets/img/bg.webp'); border-bottom:4px #a0a0a0 solid; height:20px !important;">
+    <div class="kedua" style="background-image: url('assets/img/bg.webp'); border-bottom:4px #a0a0a0 solid; height:20px !important;">
     </div><!-- End Breadcrumbs -->
 
     <section id="why-us" class="why-us" style="margin-top: 20px !important;">
@@ -91,25 +91,25 @@
 
         <div class="row g-0" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-xl-5 img-bg" style="background-image: url('assets/img/vector.jpg');height: 400px; !important;min-height:400px; max-height:400px !important;" ></div>
-                <div class="col-xl-7 slides  position-relative" style="height: 400px !important;">
-                    <div class="slides-1 swiper" style="margin:100px 60px 40pc 60px !important;">
-                        <div class="swiper-wrapper">
+          <div class="col-xl-5 img-bg" style="background-image: url('assets/img/vector.jpg');height: 400px; !important;min-height:400px; max-height:400px !important;"></div>
+          <div class="col-xl-7    position-relative" style="height: 400px !important;">
+            <div class="   " style="margin:100px 60px 40pc 60px !important;">
+              <div class=" ">
 
-                            <div class="swiper-slide">
-                                <div class="item">
-                                    <h4 class="mb-3" style="text-align: justify">
-                                        Selamat datang di stand Lembaga Pengembangan Teknologi Informasi dan Komunikasi (LPTIK) pada gelaran UNIB Fair 2022. Kami menyediakan informasi umum seputar LPTIK, game menarik yang bisa anda mainkan, UNIB Virtual Tour, serta dapatkan hadian dan doorprize menarik dari kami.
-                                    </h4>
-                                </div>
-                                <a class="cta-btn" href="{{ route('buku_tamu') }}">Isi Buku Tamu</a>
-                            </div><!-- End slide item -->
+                <div class="swiper-slide">
+                  <div class=" ">
+                    <h4 class="mb-3" style="text-align: justify;line-height: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: ; ">
+                      Selamat datang di stand Lembaga Pengembangan Teknologi Informasi dan Komunikasi (LPTIK) pada gelaran UNIB Fair 2022. Kami menyediakan informasi umum seputar LPTIK, game menarik yang bisa anda mainkan, UNIB Virtual Tour, serta dapatkan hadian dan doorprize menarik dari kami.
+                    </h4>
+                  </div>
+                  <a class="cta-btn " style="font-weight: 800; font-size: 16px; " href="{{ route('buku_tamu') }}">Isi Buku Tamu</a>
+                </div><!-- End slide item -->
 
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
       </div>
     </section><!-- End Why Choose Us Section -->

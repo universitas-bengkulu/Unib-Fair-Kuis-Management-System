@@ -50,15 +50,15 @@ html, body {
   margin-bottom:10px;
   }
 #contact #form input.name {
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid #ccc;
 }
 #contact #form select {
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid #ccc;
 }
 #contact #form textarea.Alamat {
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid #ccc;
 }
 #contact #form input.submit {
@@ -73,7 +73,7 @@ html, body {
   border-radius: 30px;
   font: 14px/16px'Bree Serif', Georgia, serif;
   transition: 0.3s;
-  
+
 
 }
 .submit-menu {
@@ -90,7 +90,7 @@ html, body {
     position: fixed;
     bottom: 13%;
     align-items: center;
-    
+
 
   }
   .submit-menu:hover {
@@ -109,7 +109,7 @@ html, body {
     font-weight: 800;
     transition: 0.3s;
     margin-top: 30px;
-    
+
 
   }
   .btn-mulai:hover {
@@ -133,7 +133,7 @@ html, body {
   width: 15px;
 }
 .text-menu {
-    width: 60%;
+    width: 80%;
     font-size: 22px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;

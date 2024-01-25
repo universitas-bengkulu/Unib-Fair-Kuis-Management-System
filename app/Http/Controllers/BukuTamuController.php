@@ -20,7 +20,7 @@ class BukuTamuController extends Controller
             'alamat'  =>  $request->alamat,
         ]);
 
-        return redirect()->route('menu_lptik_unibfair');
+        return redirect()->route('start_kuis');
     }
 
     public function kuisPost(Request $request){
@@ -59,7 +59,7 @@ class BukuTamuController extends Controller
                 }
             }
 
-            
+
 
         }
         // return $skors;

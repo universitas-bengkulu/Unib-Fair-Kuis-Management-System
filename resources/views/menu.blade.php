@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../IMG/lptik.png">
-    <title>Menu-UNIB FAIR-LPTIK</title>
+    <link rel="icon" href="{{ asset('assets/IMG/logo_unib.png') }}">
+    <title>LPTIK - Menu</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -28,9 +28,9 @@
                   <b style="color:#FFF000;letter-spacing: 2px;font-size: 30px;font-weight: 900;">LPTIK | UNIB FAIR 2022</b>
                   <b style="color: #fff; font-size: 20px; font-family: arial;font-weight: 700">#TerusBerinovasi</b>
           </div>
-          
-          
-          
+
+
+
         </div>
         <div class="product-device box-shadow d-none d-md-block"></div>
         <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
