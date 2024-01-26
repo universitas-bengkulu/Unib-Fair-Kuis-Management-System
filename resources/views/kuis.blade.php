@@ -264,7 +264,7 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
   <script type="text/javascript">
-    var counter = 900; //  15 menit
+    var counter = 300; //  5 menit
 
     function countDown() {
       if (counter >= 0) {
