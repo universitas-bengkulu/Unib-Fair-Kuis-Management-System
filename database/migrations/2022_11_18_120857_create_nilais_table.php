@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->integer('nilai');
+            $table->float('nilai', 8, 2);
             $table->integer('total_waktu');
             $table->timestamps();
         });
