@@ -40,7 +40,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6" style="background-color:#292256 ;color: #fff;padding: 3% 0px 3% 0px;border-radius: 30px;">
       <h3 style="font-family: arial; font-weight: 900; font-size: 32px;text-shadow:5px 1px 10px #000;">PETUNJUK!</h3>
-      <p class="text-menu" style="font-family: 'Times New Roman', Times, serif;width: 80% !important;">Jawablah pertanyaan yang diajukan dengan memeilih jawaban yang menurut Anda benar. Pertanyaan yang diajukan adalah pertanyaan tentang pengetahuan umum, pengetahuan tentang teknologi.<br><br><span style="color:#999">Waktu Anda 15 menit dimulai dari Anda menekan tombol "<b style="color: yellow">mulai</b>" dibawah ini</span>.</p>
+      <p class="text-menu" style="font-family: 'Times New Roman', Times, serif;width: 80% !important;">Jawablah pertanyaan yang diajukan dengan memeilih jawaban yang menurut Anda benar. Pertanyaan yang diajukan adalah pertanyaan tentang pengetahuan umum, pengetahuan tentang teknologi.<br><br><span style="color:#999">Waktu Anda 5 menit dimulai dari Anda menekan tombol "<b style="color: yellow">mulai</b>" dibawah ini</span>.</p>
       <a href="{{ route('main_game') }}" class="btn  btn-mulai" sty>Mulai</a>
     </div>
 </body>
