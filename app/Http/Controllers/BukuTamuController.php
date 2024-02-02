@@ -68,13 +68,14 @@ class BukuTamuController extends Controller
         // return $jumlah_benar;
         Nilai::create([
             'user_id'   => User::select('id')->orderBy('created_at','desc')->pluck('id')->first(),
-            'nilai'     =>  ($jumlah_benar/15)*100,
+            'nilai'     =>  round(($jumlah_benar/15)*100, 2),
             'total_waktu'   =>  $total,
         ]);
+        $tampil_nilai = round(($jumlah_benar / 15) * 100 ,2);
         if (($jumlah_benar/15)*100 > 90) {
-            return redirect()->back()->with(['success'  =>  'Jawaban sudah tersimpan']);
+            return redirect()->back()->with(['success'  =>  'Nilai Kuis Kamu adalah <b style="color:red;">' . $tampil_nilai]);
         }else {
-            return redirect()->back()->with(['error'  =>  'Jawaban sudah tersimpan, tapi nilai belum mencukupi']);
+            return redirect()->back()->with(['error'  =>  'Nilai Kuis Kamu adalah <b style="color:red;">' . $tampil_nilai ]);
         }
     }
 }

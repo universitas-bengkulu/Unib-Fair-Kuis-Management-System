@@ -111,14 +111,15 @@
               <div class="col-md-12">
                 @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-block">
-                  <strong>{{ $message }}</strong>
+                  <strong>{!! $message !!}</strong>
                 </div>
                 @endif
                 @if ($message = Session::get('error'))
                 <div class="alert alert-danger alert-block">
-                  <strong>{{ $message }}</strong>
+                  <strong>{!! $message !!}</strong>
                 </div>
                 @endif
+                </b>
 
               </div>
               <div class="col-md-8" style="overflow:auto; height:75vh !important;">
@@ -180,7 +181,7 @@
                         Waktu Mengerjakan
                       </div>
                       <div class="card-body" style="text-align: center !important ; margin:0 auto;">
-                        Waktu Anda Hanya Tersisa <span id="timer" style="color:red; font-weight: 900;"></span> detik.</br>
+                        Waktu Anda Hanya Tersisa <span id="timer" style="color:red; font-weight: 900;"></span></br>
                         <span id="link"></span>
                       </div>
                     </div>
@@ -191,7 +192,7 @@
                     <div class="card-header" style="padding:15px !important;background:#29235c; color:#ffed00; text-align:center">
                       Leader Board
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="overflow:auto; height:50vh !important;">
                       <table class="table table-hover table-bordered" style="width: 100%">
                         <thead>
                           <tr>
@@ -207,7 +208,7 @@
                             <td>{{ $index+1 }}</td>
                             <td style="font-size:13px">{{ $nilai->nama }}</td>
                             <td>{{ $nilai->nilai }}</td>
-                            <td>{{ $nilai->total_waktu }} Detik</td>
+                            <td>{{ floor($nilai->total_waktu / 60)!=0? floor($nilai->total_waktu / 60).' Menit' :''  }} {{ $nilai->total_waktu % 60 }} Detik</td>
                           </tr>
                           @endforeach
                         </tbody>
@@ -263,18 +264,21 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
   <script type="text/javascript">
-    var counter = 120;
+    var counter = 300; //  5 menit
 
     function countDown() {
       if (counter >= 0) {
-        document.getElementById("timer").innerHTML = counter;
+        var minutes = Math.floor(counter / 60);
+        var seconds = counter % 60;
+
+        document.getElementById("timer").innerHTML = minutes + " menit " + seconds + " detik";
       } else {
         document.getElementById("simpan").disabled = true;
-
       }
+
       counter -= 1;
 
-      var counter2 = setTimeout("countDown()", 1000);
+      var counter2 = setTimeout(countDown, 1000);
       return;
     }
 
