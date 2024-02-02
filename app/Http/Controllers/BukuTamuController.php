@@ -106,15 +106,16 @@ class BukuTamuController extends Controller
             }
         }
         // return $skors;
+        $jumlah_soal = Setting::first();
+
         JawabanUser::insert($skors);
         $jumlah_benar = array_sum(array_column($skors, 'skor'));
         // return $jumlah_benar;
         Nilai::create([
             'user_id'   => Session::get('id'),
-            'nilai'     =>  round(($jumlah_benar / 15) * 100, 2),
+            'nilai'     =>  round(($jumlah_benar /$jumlah_soal->banyak_soal) * 100, 2),
             'total_waktu'   =>  $total,
         ]);
-        $jumlah_soal = Setting::first();
         $tampil_nilai = round(($jumlah_benar / $jumlah_soal->banyak_soal) * 100, 2);
         if (($jumlah_benar / $jumlah_soal->banyak_soal) * 100 > 90) {
             $request->session()->flush();
