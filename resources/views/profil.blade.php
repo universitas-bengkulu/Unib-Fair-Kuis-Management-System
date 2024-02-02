@@ -22,7 +22,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
 
 		<!-- custom css -->
-		<link rel="stylesheet" href="{{ asset('assets/profile/css/templatemo-style.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/profile/css/templatemo-style1.css') }}">
 		<style>
 			.material-icons {
 		font-family: 'Material Icons';
