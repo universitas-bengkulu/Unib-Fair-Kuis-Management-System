@@ -173,7 +173,7 @@
                 </table>
               </div>
               <div class="col-md-4 ">
-                <div class="row">
+                <div class="row mb-2">
 
                   <div class="col-md-12">
                     <div class="card">
@@ -192,8 +192,8 @@
                     <div class="card-header" style="padding:15px !important;background:#29235c; color:#ffed00; text-align:center">
                       Leader Board
                     </div>
-                    <div class="card-body" style="overflow:auto; height:50vh !important;">
-                      <table class="table table-hover table-bordered" style="width: 100%">
+                    <div class="card-body" style="overflow:auto; max-height:50vh !important;padding: 0px;">
+                      <table class="table table-hover table-bordered" style="width: 100%;text-align: center; margin: 0px;">
                         <thead>
                           <tr>
                             <th>No</th>
@@ -206,7 +206,7 @@
                           @foreach ($nilai as $index => $nilai)
                           <tr>
                             <td>{{ $index+1 }}</td>
-                            <td style="font-size:13px">{{ $nilai->nama }}</td>
+                            <td style="font-size:13px;text-align: left;">{{ $nilai->nama }}</td>
                             <td>{{ $nilai->nilai }}</td>
                             <td>{{ floor($nilai->total_waktu / 60)!=0? floor($nilai->total_waktu / 60).' Menit' :''  }} {{ $nilai->total_waktu % 60 }} Detik</td>
                           </tr>
@@ -217,7 +217,7 @@
                   </div>
                 </div>
                 <div class="col-md-12" style="margin-top:15px;">
-                  <button type="submit" id="simpan" style="width: 100%; padding:10px !important; background:#29235c; color:#ffed00;" class="btn "><i class="fa fa-check-circle"></i>&nbsp; Selesai</button>
+                  <button type="submit" id="simpan" style="width: 100%; padding:10px !important;  " class="btn btn-success"><i class="fa fa-check-circle"></i>&nbsp; Selesai</button>
                 </div>
               </div>
             </div>
@@ -264,7 +264,7 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
   <script type="text/javascript">
-    var counter = 300; //  5 menit
+    var counter = localStorage.getItem('counter') || {{$waktu * 60}}; //  menit
 
     function countDown() {
       if (counter >= 0) {
@@ -273,10 +273,13 @@
 
         document.getElementById("timer").innerHTML = minutes + " menit " + seconds + " detik";
       } else {
+        document.getElementById("timer").innerHTML = "0 detik";
+
         document.getElementById("simpan").disabled = true;
       }
 
       counter -= 1;
+      localStorage.setItem('counter', counter);
 
       var counter2 = setTimeout(countDown, 1000);
       return;

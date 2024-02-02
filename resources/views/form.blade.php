@@ -34,32 +34,84 @@
   <div class="row container mx-auto" style="margin-top: 40px;">
 
     <div class="col-md-6">
-      <img class="w3-image" src="{{ asset('assets/IMG/1.webp') }}" alt="LOGO " width="600" height="600">
+      <img class="w3-image" src="{{ asset('undraw_interview_re_e5jn.svg') }}" alt="LOGO " width="600" height="600">
     </div>
     <div class="col-md-6">
       <section id="contact">
         <div id="form">
+          @if(session('error'))
+          <div class="alert alert-danger"><span>{{ session('error') }}</span></div>
+          @endif
           <form action="{{ route('buku_tamu_post') }}" id="contactForm" method="post">
             @csrf
-            <span>Nama</span>
-            <input type="text" name="nama" class="name" required placeholder="Masukkan Nama Lengkap Anda" tabindex=1 />
-            <span>Pekerjaaan/ Sekolah</span>
-            <input type="text" name="pekerjaan" required class="name" placeholder="Pekerjaaan/ Sekolah" tabindex=1 />
-            <span>Jenis Kelamin</span>
-            <select class="select" required name="jenis_kelamin" aria-label="Default select example" tabindex=2>
-              <option>Pilih Jenis Kelamin</option>
-              <option value="L">Laki-Laki</option>
-              <option value="P">Perempuan</option>
-            </select>
-            <span>Alamat</span>
-            <textarea class="Alamat" name="alamat" required placeholder="Alamat" tabindex=3></textarea>
+            <div class=" mb-3 row">
+              <div class="col-md-2  "><span>Nama</span></div>
+              <div class="col-md-10   ">
+                <input type="text" name="nama" class="name" placeholder="Masukkan Nama Lengkap Anda" value="{{old('nama')}}">
+                @error('nama')
+                <span class="text-danger " style="margin-top: -10px;">{{ $message }}</span>
+                @enderror
+              </div>
+            </div>
+            <div class=" mb-3 row">
+              <span for="inputPassword" class="col-sm-2 col-form-label">Pekerjaaan/ Sekolah</span>
+              <div class="col-sm-10">
+                <input type="text" name="pekerjaan" class="name" placeholder="Pekerjaaan/ Sekolah" value="{{old('pekerjaan')}}">
+                @error('pekerjaan')
+                <span class="text-danger " style="margin-top: -10px;">{{ $message }}</span>
+                @enderror
+              </div>
+            </div>
+
+            <div class=" mb-3 row">
+              <span for="inputPassword" class="col-sm-2 col-form-label">Jenis Kelamin</span>
+              <div class="col-sm-10">
+                <select class="select" name="jenis_kelamin" aria-label="Default select example" tabindex=2>
+                  <option value="">Pilih Jenis Kelamin</option>
+                  <option value="L">Laki-Laki</option>
+                  <option value="P">Perempuan</option>
+                </select>
+                @error('jenis_kelamin')
+                <span class="text-danger " style="margin-top: -10px;">{{ $message }}</span>
+                @enderror
+              </div>
+            </div>
+            <div class=" mb-3 row">
+              <span for="inputPassword" class="col-sm-2 col-form-label">Alamat</span>
+              <div class="col-sm-10">
+                <textarea class="Alamat" name="alamat" placeholder="Alamat" tabindex=3>{{old('alamat')}}</textarea>
+                @error('alamat')
+                <span class="text-danger " style="margin-top: -10px;">{{ $message }}</span>
+                @enderror
+              </div>
+            </div>
+
             <input type="submit" style="padding: 10px 0px;" name="submit" value="SIMPAN" class="submit" tabindex=5>
+
           </form>
         </div>
       </section>
     </div>
   </div>
-
+  <footer id="footer" class="footer" style="position: absolute; width: 100%; bottom: 0;text-align: center;font-size: 14px; ">
+    <div class="footer-legal" style="background-color: #29235c;">
+      <div class="container container-footer">
+        <div class="copyright text-white" style="padding: 5px 0px;">
+          &copy; UNIB Fair <strong><span>Universitas Bengkulu</span></strong>. 2022
+        </div>
+        <div class="credits text-white">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
+          Lembaga Pengembangan Teknologi Informasi dan Komunikasi <a href="https://lptik.unib.ac.id">LPTIK</a>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  <script>
+    localStorage.removeItem('counter');
+  </script>
 </body>
 
 </html>

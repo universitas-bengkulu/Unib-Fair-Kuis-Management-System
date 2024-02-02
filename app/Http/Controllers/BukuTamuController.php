@@ -9,10 +9,36 @@ use App\Models\Pertanyaan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class BukuTamuController extends Controller
 {
     public function post(Request $request){
+
+        $rules = [
+            'nama' => 'required',
+            'pekerjaan' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+        ];
+
+        $messages = [
+            'required' => ':attribute harus diisi.',
+        ];
+
+        $attributes = [
+            'nama' => 'Nama',
+            'pekerjaan' => 'Pekerjaan Atau Sekolah',
+            'jenis_kelamin' => 'Jenis Kelamin',
+            'alamat' => 'Alamat',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages, $attributes);
+
+        if ($validator->fails()) {
+            return redirect()->route('buku_tamu')->withErrors($validator)->withInput();
+        }
+
         $user = User::create([
             'nama'  =>  $request->nama,
             'pekerjaan'  =>  $request->pekerjaan,
@@ -20,7 +46,24 @@ class BukuTamuController extends Controller
             'alamat'  =>  $request->alamat,
         ]);
 
-        return redirect()->route('start_kuis');
+
+        $sessionData = [
+            'id' => $user->id,
+            'nama'  =>  $request->nama,
+            'pekerjaan'  =>  $request->pekerjaan,
+            'jenis_kelamin'  =>  $request->jenis_kelamin,
+            'alamat'  =>  $request->alamat,
+            'isLogin' => 1,
+        ];
+
+        Session::put($sessionData);
+
+        // Perhatikan perubahan di baris berikut
+        if (Session::get('isLogin', 0) ==1) {
+            return redirect()->route('start_kuis');
+        } else {
+            return redirect()->route('buku_tamu_post')->with(['error' => 'Terjadi Error Silakan Coba Lagi!']);
+        }
     }
 
     public function kuisPost(Request $request){
@@ -67,15 +110,21 @@ class BukuTamuController extends Controller
         $jumlah_benar = array_sum(array_column($skors,'skor'));
         // return $jumlah_benar;
         Nilai::create([
-            'user_id'   => User::select('id')->orderBy('created_at','desc')->pluck('id')->first(),
+            'user_id'   => Session::get('id' ),
             'nilai'     =>  round(($jumlah_benar/15)*100, 2),
             'total_waktu'   =>  $total,
         ]);
         $tampil_nilai = round(($jumlah_benar / 15) * 100 ,2);
         if (($jumlah_benar/15)*100 > 90) {
-            return redirect()->back()->with(['success'  =>  'Nilai Kuis Kamu adalah <b style="color:red;">' . $tampil_nilai]);
+            $request->session()->flush();
+            Session::put('nilai', $tampil_nilai);
+            return redirect()->route('nilai');
         }else {
-            return redirect()->back()->with(['error'  =>  'Nilai Kuis Kamu adalah <b style="color:red;">' . $tampil_nilai ]);
+            $request->session()->flush();
+            Session::put('nilai', $tampil_nilai);
+
+            return redirect()->route('nilai');
+
         }
     }
 }

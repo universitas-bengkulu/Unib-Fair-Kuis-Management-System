@@ -36,13 +36,42 @@
     <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
   </div>
 
-  <div class="row text-center" style="margin-top: 8%;">
-    <div class="col-md-3"></div>
-    <div class="col-md-6" style="background-color:#292256 ;color: #fff;padding: 3% 0px 3% 0px;border-radius: 30px;">
-      <h3 style="font-family: arial; font-weight: 900; font-size: 32px;text-shadow:5px 1px 10px #000;">PETUNJUK!</h3>
-      <p class="text-menu" style="font-family: 'Times New Roman', Times, serif;width: 80% !important;">Jawablah pertanyaan yang diajukan dengan memeilih jawaban yang menurut Anda benar. Pertanyaan yang diajukan adalah pertanyaan tentang pengetahuan umum, pengetahuan tentang teknologi.<br><br><span style="color:#999">Waktu Anda 5 menit dimulai dari Anda menekan tombol "<b style="color: yellow">mulai</b>" dibawah ini</span>.</p>
-      <a href="{{ route('main_game') }}" class="btn  btn-mulai" sty>Mulai</a>
+  <div class="row text-center container mx-auto" style="margin-top: 8%;">
+    <div class="col-md-4 ">
+      <img src="{{asset('undraw_mobile_application_re_13u3.svg')}}">
     </div>
+    <div class="col-md-1 "></div>
+
+    <div class="col-md-7">
+      <div style="background-color:#292256 ;color: #fff;padding: 6%  ;border-radius: 30px;">
+        <p style="font-family: 'Times New Roman', Times, serif; text-align: left;font-size: 28px !important;">Hai! <span style="color:yellow; font-weight: 900;">{{ Session::get('nama') }} </span></p>
+        <p style="font-family: 'Times New Roman', Times, serif; text-align: left;font-size: 20px !important;color:#ccc">
+          Ayo Kerjakan Kuis nya dengan Jawab pertanyaan yang diajukan dengan memeilih jawaban yang menurut Anda benar. Pertanyaan yang diajukan adalah pertanyaan tentang pengetahuan umum, pengetahuan tentang teknologi<br><br><span style="color:#ccc">Ada <b style="color: yellow">{{$setting->banyak_soal}} Soal</b> yang dikerjakan selama <b style="color: yellow">{{ $setting->lama_pengerjaan_menit }} menit</b>, dimulai dari Anda menekan tombol "<b style="color: yellow">mulai</b>" dibawah ini</span>.</p>
+        </p>
+        <a href="{{ route('main_game') }}" class="btn  btn-mulai" sty>Mulai</a>
+      </div>
+
+    </div>
+  </div>
+  <footer id="footer" class="footer" style="position: absolute; width: 100%; bottom: 0;text-align: center;font-size: 14px; ">
+    <div class="footer-legal" style="background-color: #29235c;">
+      <div class="container container-footer">
+        <div class="copyright text-white" style="padding: 5px 0px;">
+          &copy; UNIB Fair <strong><span>Universitas Bengkulu</span></strong>. 2022
+        </div>
+        <div class="credits text-white">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
+          Lembaga Pengembangan Teknologi Informasi dan Komunikasi <a href="https://lptik.unib.ac.id">LPTIK</a>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 </body>
+<script>
+  localStorage.removeItem('counter');
+</script>
 
 </html>

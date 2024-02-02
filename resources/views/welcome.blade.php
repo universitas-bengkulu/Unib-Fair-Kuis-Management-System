@@ -127,7 +127,7 @@
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
-          Lembaga Pengembangan Teknologi Informasi dan Komunikasi <a href="https://bootstrapmade.com/">LPTIK</a>
+          Lembaga Pengembangan Teknologi Informasi dan Komunikasi <a href="https://lptik.unib.ac.id">LPTIK</a>
         </div>
       </div>
     </div>
@@ -148,7 +148,9 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
-
+  <script>
+    localStorage.removeItem('counter');
+  </script>
 </body>
 
 </html>
